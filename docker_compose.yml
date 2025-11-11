@@ -39,9 +39,18 @@ services:
       DB_NAME: adj_demo
       DB_USER: root
       DB_PASS: root
-    container_name:
+    container_name: adj-server
     ports:
+      - "8081:8080"
     networks:
+      - adj-net
     depends_on:
+      - frontend
+ #docker volume create  adj-volume     
 volumenes:
+  adj-volume:
+    external: true
+ #docker network create --driver bridge adj-net
 networks:
+  adj-net:
+    external: true
