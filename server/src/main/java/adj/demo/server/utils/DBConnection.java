@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 
 @Configuration
 public class DBConnection {
-    @Value("${db.host}")
+ @Value("${db.host}")
     private String host;
 
     @Value("${db.port}")
@@ -21,14 +21,15 @@ public class DBConnection {
     @Value("${db.user}")
     private String user;
 
-    @Value("${db.password}")
+    @Value("${db.pass}")
     private String password;
 
     @Bean
-    public DataSource getConnection(){
+    public DataSource getConnection() {
         DriverManagerDataSource source = new DriverManagerDataSource();
-        source.setDriverClassName("com.mysql.jdbc.Driver");
-        source.setUrl("jdbc:mysql://" + host + ":" + port + "/" + name);
+        source.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        source.setUrl("jdbc:mysql://" + host + ":" + port + "/" + name +
+                "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC");
         source.setUsername(user);
         source.setPassword(password);
         return source;

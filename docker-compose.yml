@@ -47,7 +47,7 @@ services:
     depends_on:
       - frontend
  #docker volume create  adj-volume     
-volumenes:
+volumes:
   adj-volume:
     external: true
  #docker network create --driver bridge adj-net

@@ -10,7 +10,7 @@ COPY . .
 #ejecutar 2 comandos
 #1.- limpiar y compilar el .JAR del back
 #2.- copiar el .JAR resultante al directorio de trabajo
-RUN mvn clean package -DskipTests && cp /target/*.jar app.jar
+RUN mvn clean package -DskipTests && cp ./target/*.jar app.jar
 
 # Exponsr la imagen en puerto
 EXPOSE 8081

@@ -3,7 +3,7 @@ FROM node:20 AS build
 #establecer el directorio del trabajo
 WORKDIR /app
 #package-lock.json, package.json
-COPY package*.json
+COPY package*.json ./
 #función para generar el node_modules
 RUN npm install
 
